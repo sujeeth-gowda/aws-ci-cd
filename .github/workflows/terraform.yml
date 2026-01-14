@@ -35,14 +35,13 @@ jobs:
       working-directory: terraform
       run: terraform plan
       env:
-        AWS_ACCESS_KEY_ID: ${{ AKIA3RMM32CHAN57TFDT }}
-        AWS_SECRET_ACCESS_KEY: ${{ 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 }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main'
       working-directory: terraform
       run: terraform apply -auto-approve
       env:
-        AWS_ACCESS_KEY_ID: ${{  AKIA3RMM32CHAN57TFDT }}
-        AWS_SECRET_ACCESS_KEY: ${{ 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 }}
-
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
